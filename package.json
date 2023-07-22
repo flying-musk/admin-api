@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --watch 'index.js' --exec 'functions-framework --target=helloWorld'",
+    "start": "nodemon --watch 'index.js' --exec 'functions-framework --target=login'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

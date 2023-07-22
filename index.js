@@ -1,5 +1,5 @@
 const functions = require('@google-cloud/functions-framework');
 
-functions.http('helloWorld', (req, res) => {
-  res.send('Hello, World');
+functions.http('login', (req, res) => {
+  res.send('hello, please login');
 });
