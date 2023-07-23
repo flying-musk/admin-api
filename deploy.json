@@ -1,0 +1,18 @@
+{
+  "login": {
+    "runtime": "nodejs20",
+    "region": "asia-east1",
+    "trigger": "HTTP",
+    "source": ".",
+    "entryPoint": "login",
+    "allow-unauthenticated": true
+  },
+  "getData": {
+    "runtime": "nodejs20",
+    "region": "asia-east1",
+    "trigger": "HTTP",
+    "source": ".",
+    "entryPoint": "getData",
+    "allow-unauthenticated": true
+  }
+}
