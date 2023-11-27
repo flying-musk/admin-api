@@ -4,10 +4,10 @@ const members = Array.from({ length: 640 }, () => {
   return {
     mbid: faker.string.nanoid(10),
     name: faker.person.fullName(),
-    amtout: Math.floor(Math.random() * 4001),
-    amtin: Math.floor(Math.random() * 4001),
-    transfer: Math.floor(Math.random() * 4001),
-    bal: Math.floor(Math.random() * 4001),
+    amtout: Math.floor(Math.random() * 2001),
+    amtin: Math.floor(Math.random() * 2001),
+    transfer: Math.floor(Math.random() * 2001),
+    bal: Math.floor(Math.random() * 2001),
   };
 });
 console.log(members);
@@ -21,10 +21,15 @@ module.exports = (req, res) => {
       const response = {
         code: 1,
         data: {
-          sum: { Bal: 1235, Total_in: 1236, Total_out: 1237, Total_trans: 1238 },
+          sum: {
+            Bal: members.reduce((sum, item) => sum + item.bal, 0),
+            Total_in: members.reduce((sum, item) => sum + item.amtin, 0),
+            Total_out: members.reduce((sum, item) => sum + item.amtout, 0),
+            Total_trans: members.reduce((sum, item) => sum + item.transfer, 0),
+          },
           detail: members,
         },
-        msg: "get all money",
+        msg: `${members.length} records`,
       };
       res.status(200).json(response);
     } else if (action === "individual") {
