@@ -1,6 +1,8 @@
 `npm install` to install modules
 
-`npm start` to test locally on http://localhost:8080/, with endpoint `helloWorld`
+`npm start` to test locally on http://localhost:8080/, with endpoint `login`
+
+`npm run start:money` to test locally on http://localhost:8080/, with endpoint `money`
 
 currenly command for deploy to google cloud platform:
 
