@@ -1,4 +1,5 @@
 const functions = require("@google-cloud/functions-framework");
+const handleMoney = require("./endpoints/money");
 
 const enableCors = (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
@@ -19,11 +20,5 @@ functions.http("login", (req, res) => {
 
 functions.http("money", (req, res) => {
   enableCors(req, res);
-  if (req.method === "OPTIONS") {
-    res.status(204).send("");
-  } else if (req.method === "POST") {
-    res.status(200).json({ success: true, message: "get money successful" });
-  } else {
-    res.status(405).send("Method Not Allowed");
-  }
+  handleMoney(req, res);
 });
