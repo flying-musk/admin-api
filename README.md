@@ -4,8 +4,9 @@
 
 `npm run start:money` to test locally on http://localhost:8080/, with endpoint `money`
 
-currenly command for deploy to google cloud platform:
+currenly command for deploy to google cloud platform: `npm run deploy`
 
+original deploy script:
 ```
 gcloud functions deploy login \
   --gen2 \

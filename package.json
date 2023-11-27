@@ -6,7 +6,10 @@
   "scripts": {
     "start": "nodemon --watch 'index.js' --exec 'functions-framework --target=login'",
     "start:money": "nodemon --watch 'index.js' --exec 'functions-framework --target=money'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:login": "gcloud functions deploy login --gen2 --runtime=nodejs20 --region=asia-east1 --source=. --entry-point=login --trigger-http --allow-unauthenticated",
+    "deploy:money": "gcloud functions deploy money --gen2 --runtime=nodejs20 --region=asia-east1 --source=. --entry-point=money --trigger-http --allow-unauthenticated",
+    "deploy": "npm run deploy:login && npm run deploy:money"
   },
   "author": "",
   "license": "ISC",

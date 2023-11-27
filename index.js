@@ -7,10 +7,11 @@ const enableCors = (req, res) => {
 };
 
 functions.http("login", (req, res) => {
-  if (req.method === "POST") {
-    const { username, password } = req.body;
-    console.log(req.body, username, password);
-    res.status(200).json({ success: true, message: "Login successful" });
+  enableCors(req, res);
+  if (req.method === "OPTIONS") {
+    res.status(204).send("");
+  } else if (req.method === "POST") {
+    res.status(200).json({ success: true, message: "login successful" });
   } else {
     res.status(405).send("Method Not Allowed");
   }
@@ -18,20 +19,11 @@ functions.http("login", (req, res) => {
 
 functions.http("money", (req, res) => {
   enableCors(req, res);
-
-  console.log("enter", req.method, req.body);
-
-  res.status(200).json({ success: true, message: "get money successful" });
-
-  // if (req.method === "POST") {
-  //   console.log(req.body);
-
-  //   res.status(200).json({ success: true, message: "get money successful" });
-  // } else {
-  //   res.status(405).send("Method Not Allowed");
-  // }
-});
-
-functions.http("getData", (req, res) => {
-  res.send("getData success");
+  if (req.method === "OPTIONS") {
+    res.status(204).send("");
+  } else if (req.method === "POST") {
+    res.status(200).json({ success: true, message: "get money successful" });
+  } else {
+    res.status(405).send("Method Not Allowed");
+  }
 });
