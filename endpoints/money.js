@@ -33,6 +33,9 @@ module.exports = (req, res) => {
       };
       res.status(200).json(response);
     } else if (action === "individual") {
+      const { mbid } = req.body;
+      console.log(action, mbid);
+
       res.status(200).json({ success: true, message: "get individual money" });
     }
   } else {
